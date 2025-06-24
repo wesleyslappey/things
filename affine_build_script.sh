@@ -8,11 +8,11 @@ source <(curl -s https://raw.githubusercontent.com/community-scripts/ProxmoxVE/m
 function header_info {
 clear
 cat <<"EOF"
-    ___    __________ _____   ________
-   /   |  / ____/ __ \\_   _| / ____/
-  / /| | / /_  / /_/ / | |  / /     
- / ___ |/ __/ / ____/  | | / /___   
-/_/  |_/_/   /_/      |_| \\____/   
+    ___    __________ _____   ______
+   /   |  / ____/ ____/  _/  / ____/
+  / /| | / /_  / /_   / /   / __/   
+ / ___ |/ __/ / __/ _/ /   / /___   
+/_/  |_/_/   /_/   /___/  /_____/   
                                    
 EOF
 }
@@ -21,7 +21,7 @@ echo -e "Loading..."
 APP="Affine"
 var_disk="8"
 var_cpu="2"
-var_ram="2048"
+var_ram="4096"
 var_os="debian"
 var_version="12"
 variables
@@ -58,18 +58,12 @@ if [[ ! -d /opt/affine ]]; then
   msg_error "No ${APP} Installation Found!"
   exit
 fi
-RELEASE=$(curl -s https://api.github.com/repos/toeverything/AFFiNE/releases/latest | grep "tag_name" | awk '{print substr($2, 2, length($2)-3)}')
-if [[ ! -f /opt/${APP}_version.txt ]] || [[ "${RELEASE}" != "$(cat /opt/${APP}_version.txt)" ]]; then
-  msg_info "Updating ${APP} to ${RELEASE}"
-  cd /opt/affine
-  docker-compose pull
-  docker-compose up -d --force-recreate
-  docker image prune -f
-  echo "${RELEASE}" >/opt/${APP}_version.txt
-  msg_ok "Updated ${APP} to ${RELEASE}"
-else
-  msg_ok "No update required. ${APP} is already at ${RELEASE}"
-fi
+msg_info "Updating ${APP}"
+cd /opt/affine
+docker compose pull
+docker compose up -d --force-recreate
+docker image prune -f
+msg_ok "Updated ${APP}"
 exit
 }
 
@@ -80,3 +74,7 @@ description
 msg_ok "Completed Successfully!\\n"
 echo -e "${APP} should be reachable by going to the following URL.
          ${BL}http://${IP}:3010${CL} \\n"
+echo -e "Management Commands:
+         ${BL}affine-update${CL} - Update Affine to latest version
+         ${BL}affine-backup${CL} - Create backup of Affine data
+         ${BL}affine-restore <date>${CL} - Restore from backup \\n"

@@ -1,0 +1,149 @@
+{
+    "attributes": {
+        "dataSource.category": "security",
+        "dataSource.product.name": "Extrahop Reveal(x) 360",
+        "dataSource.product.vendor_name": "Extrahop",
+        "class_uid": "2001",
+        "activity_id": "99",
+        "category_uid": "2",
+        "type_uid": "200199",
+        "metadata.version": "1.0.0-rc.2",
+        "metadata.product.name": "Extrahop Reveal(x) 360",
+        "metadata.product.vendor_name": "Extrahop",
+    },
+    "formats": [
+        {
+            "format": ".*${parse=dottedJson}$",
+            "rewrites": [
+                {
+                    "input": "id",
+                    "output": "metadata.uid",
+                    "match": ".*",
+                    "replace": "$0"
+                },
+                {
+                    "input": "start_time",
+                    "output": "time",
+                    "match": ".*",
+                    "replace": "$0"
+                },
+                {
+                    "input": "update_time",
+                    "output": "metadata.original_time",
+                    "match": ".*",
+                    "replace": "$0"
+                },
+                {
+                    "input": "mod_time",
+                    "output": "metadata.modified_time",
+                    "match": ".*",
+                    "replace": "$0"
+                },
+                {
+                    "input": "title",
+                    "output": "finding.title",
+                    "match": ".*",
+                    "replace": "$0"
+                },
+                {
+                    "input": "description",
+                    "output": "finding.desc",
+                    "match": ".*",
+                    "replace": "$0"
+                },
+                {
+                    "input": "categories",
+                    "output": "metadata.labels",
+                    "match": ".*",
+                    "replace": "$0"
+                },
+                {
+                    "input": "risk_score",
+                    "output": "device.risk_score",
+                    "match": ".*",
+                    "replace": "$0"
+                },
+                {
+                    "input": "type",
+                    "output": "activity_name",
+                    "match": ".*",
+                    "replace": "$0"
+                },
+                {
+                    "input": "properties.server_ipaddr.type",
+                    "output": "enrichment.type",
+                    "match": ".*",
+                    "replace": "$0"
+                },
+                {
+                    "input": "properties.server_ipaddr.value",
+                    "output": "enrichment.value",
+                    "match": ".*",
+                    "replace": "$0"
+                },
+                {
+                    "input": "ticket_id",
+                    "output": "metadata.correlation_uid",
+                    "match": ".*",
+                    "replace": "$0"
+                },
+                {
+                    "input": "assignee",
+                    "output": "finding.assignee",
+                    "match": ".*",
+                    "replace": "$0"
+                },
+                {
+                    "input": "resolution",
+                    "output": "finding.remediation.desc",
+                    "match": ".*",
+                    "replace": "$0"
+                },
+                {
+                    "input": "appliance_id",
+                    "output": "finding.product_uid",
+                    "match": ".*",
+                    "replace": "$0"
+                }
+            ]
+        }
+    ],
+    "mappings": {
+        "version": 0,
+        "mappings": [
+            {
+                "predicate": "activity_id = '99'",
+                "copies": [
+                    {
+                        "inputs": [
+                            "user"
+                        ],
+                        "output": "actor.username",
+                        "type": "string"
+                    },
+                    {
+                        "inputs": [
+                            "user"
+                        ],
+                        "output": "actor.user.name",
+                        "type": "string"
+                    },
+                    {
+                        "inputs": [
+                            "client_ip"
+                        ],
+                        "output": "src_endpoint.ip",
+                        "type": "string"
+                    },
+                    {
+                        "inputs": [
+                            "server_ip"
+                        ],
+                        "output": "dst_endpoint.ip",
+                        "type": "string"
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,208 @@
+{
+  "dataSource": {
+    "category": "security",
+    "vendor": "ExtraHop",
+    "name": "Reveal(x) 360"
+  },
+  "event": {
+    "time": 1721851010000,
+    "type": "Network Scan Detection"
+  },
+  "metadata": {
+    "version": "1.0.0-rc.2",
+    "product": {
+      "name": "ExtraHop Reveal(x) 360",
+      "vendor_name": "ExtraHop"
+    },
+    "uid": "21474836732",
+    "original_time": 1732796685605,
+    "modified_time": 1732796706004,
+    "correlation_uid": "2258",
+    "labels": ["sec", "sec.ids"]
+  },
+  "class_uid": 4001,
+  "class_name": "Network Activity",
+  "category_uid": 4,
+  "category_name": "Network Activity",
+  "activity_id": 99,
+  "activity_name": "ids_network_scan",
+  "type_uid": 400199,
+  "severity": "Medium",
+  "severity_id": 3,
+  "finding": {
+    "title": "ET SCAN RDP Connection Attempt from Nmap",
+    "desc": "The ExtraHop system observed activity that matched rule values in signature ID (SID) 2036252: Flow: [tcp] any → any 3389, Payload: '/\\x00\\x00\\x00\\x00\\x00Cookie: mstshash=nmap\\r\\n/s'. This indicates reconnaissance activity using Nmap tool against RDP services.",
+    "uid": "21474836732-extrahop-nmap-rdp-scan",
+    "product_uid": "5",
+    "src_url": "https://extrahop-bd.cloud.extrahop.com/extrahop/#/detections/detail/21474836732/?from=1713978454&until=1732797585&interval_type=DT"
+  },
+  "src_endpoint": {
+    "ip": "10.1.1.10",
+    "hostname": "dc1.i.rx.tours",
+    "instance_uid": "12884901891"
+  },
+  "dst_endpoint": {
+    "ip": "10.1.0.162",
+    "hostname": "pc1.i.rx.tours", 
+    "instance_uid": "12884901904"
+  },
+  "connection_info": {
+    "protocol_name": "TCP",
+    "direction": "Inbound",
+    "boundary": "Internal"
+  },
+  "traffic": {
+    "packets": 1,
+    "bytes": 64
+  },
+  "device": {
+    "name": "Frontier-PHX",
+    "ip": "10.1.0.162",
+    "risk_score": 35,
+    "os": {
+      "name": "Microsoft Windows 10 Pro",
+      "type": "Windows"
+    }
+  },
+  "actor": {
+    "user": {
+      "name": "Jean-Luc Picard",
+      "email_addr": "jeanluc@starfleet.corp",
+      "uid": "2c6c64e3-f489-4ba9-ba8a-783123779f88_jeanluc@starfleet.corp"
+    }
+  },
+  "enrichment": {
+    "type": "threat_intelligence",
+    "value": "Known scanning tool signature detected",
+    "provider": "Emerging Threats Pro",
+    "data": {
+      "signature_id": "2036252",
+      "rule_created": "2022-04-19",
+      "reference": "https://github.com/nmap/nmap/blob/4b46fa7097673f157e7b93e72f0c8b3249c54b4c/nselib/rdp.lua#L211"
+    }
+  },
+  "mitre_attack": {
+    "tactics": ["T1046"],
+    "techniques": ["Network Service Scanning"]
+  },
+  "status": "acknowledged",
+  "status_id": 2,
+  "unmapped": {
+    "extrahop_appliance_id": "5",
+    "extrahop_ticket_id": "2258",
+    "extrahop_detection_type": "ids_network_scan",
+    "extrahop_recommended": false,
+    "extrahop_is_user_created": false
+  }
+}
+
+{
+  "dataSource": {
+    "category": "security", 
+    "vendor": "ExtraHop",
+    "name": "Reveal(x) 360"
+  },
+  "event": {
+    "time": 1721851070000,
+    "type": "Tunneled RDP Detection"
+  },
+  "metadata": {
+    "version": "1.0.0-rc.2",
+    "product": {
+      "name": "ExtraHop Reveal(x) 360",
+      "vendor_name": "ExtraHop"
+    },
+    "uid": "21474836840",
+    "original_time": 1732796684990,
+    "modified_time": 1725987591974,
+    "labels": ["sec", "sec.ids"]
+  },
+  "class_uid": 4001,
+  "class_name": "Network Activity",
+  "category_uid": 4,
+  "category_name": "Network Activity", 
+  "activity_id": 99,
+  "activity_name": "ids_bad_unknown",
+  "type_uid": 400199,
+  "severity": "High",
+  "severity_id": 4,
+  "finding": {
+    "title": "ET POLICY Tunneled RDP msts Handshake",
+    "desc": "The ExtraHop system observed activity that matched rule values in signature ID (SID) 2027192: Flow: [tcp] any 21, 22, 23, 25, 53, 80, 443, 8080 → any 1:3388, 3390:65535, Packet is no more than 64 bytes, Payload: '/^\\x03\\x00\\x00.{2}\\xe0.{5}Cookie: mstshash=/s'. This indicates potential RDP tunneling activity which could be used to bypass network restrictions.",
+    "uid": "21474836840-extrahop-tunneled-rdp",
+    "product_uid": "5",
+    "src_url": "https://extrahop-bd.cloud.extrahop.com/extrahop/#/detections/detail/21474836840/?from=1719439205&until=1732797584&interval_type=DT"
+  },
+  "src_endpoint": {
+    "ip": "10.1.1.10",
+    "hostname": "dc1.attack.local",
+    "instance_uid": "12884901891"
+  },
+  "dst_endpoint": {
+    "ip": "10.1.0.162", 
+    "hostname": "pc1.i.rx.tours",
+    "instance_uid": "12884901904"
+  },
+  "connection_info": {
+    "protocol_name": "TCP",
+    "direction": "Outbound",
+    "boundary": "Internal"
+  },
+  "traffic": {
+    "packets": 3,
+    "bytes": 192
+  },
+  "device": {
+    "name": "Frontier-PHX",
+    "ip": "10.1.0.162",
+    "risk_score": 45,
+    "os": {
+      "name": "Microsoft Windows 10 Pro",
+      "type": "Windows"
+    }
+  },
+  "actor": {
+    "user": {
+      "name": "Jean-Luc Picard", 
+      "email_addr": "jeanluc@starfleet.corp",
+      "uid": "2c6c64e3-f489-4ba9-ba8a-783123779f88_jeanluc@starfleet.corp"
+    }
+  },
+  "enrichment": {
+    "type": "threat_intelligence",
+    "value": "RDP tunneling technique detected",
+    "provider": "Emerging Threats Pro",
+    "data": {
+      "signature_id": "2027192",
+      "rule_created": "2019-04-11",
+      "rule_updated": "2019-07-26", 
+      "reference": "https://www.fireeye.com/blog/threat-research/2019/01/bypassing-network-restrictions-through-rdp-tunneling.html"
+    }
+  },
+  "mitre_attack": {
+    "tactics": ["T1090"],
+    "techniques": ["Proxy: Multi-hop Proxy"]
+  },
+  "status": "new",
+  "status_id": 1,
+  "unmapped": {
+    "extrahop_appliance_id": "5",
+    "extrahop_detection_type": "ids_bad_unknown", 
+    "extrahop_recommended": false,
+    "extrahop_is_user_created": false,
+    "extrahop_victims": [
+      {
+        "ip": "10.1.0.162",
+        "hostname": "pc1.i.rx.tours"
+      },
+      {
+        "ip": "10.1.1.93", 
+        "hostname": "jump.i.rx.tours"
+      },
+      {
+        "ip": "10.1.1.37",
+        "hostname": "jump.i.rx.tours"
+      }
+    ]
+  }
+}

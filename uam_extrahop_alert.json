@@ -1,0 +1,79 @@
+{
+  "finding_info": {
+    "uid": "21474836732-extrahop-nmap-rdp-scan",
+    "title": "ET SCAN RDP Connection Attempt from Nmap",
+    "desc": "The ExtraHop system observed activity that matched rule values in signature ID (SID) 2036252: Flow: [tcp] any → any 3389, Payload: '/\\x00\\x00\\x00\\x00\\x00Cookie: mstshash=nmap\\r\\n/s'. This indicates a potential network scanning attempt using Nmap against RDP services, which could be reconnaissance activity preceding an attack."
+  },
+  "resources": [
+    {
+      "name": "Frontier-PHX",
+      "type": "Windows desktop",
+      "uid": "2266199658616372051",
+      "version": "Microsoft Windows 10 Pro 64-bit",
+      "s1_metadata": {
+        "group_name": "Default Group",
+        "account_id": "426418030212073761",
+        "account_name": "SentinelOne",
+        "group_id": "837646386101892594",
+        "mgmt_id": 11633,
+        "scope_id": "837646386101892594",
+        "scope_level": "Group",
+        "site_id": "837646386093503985",
+        "site_name": "SF East Bay Corp"
+      }
+    }
+  ],
+  "severity": "medium",
+  "category_uid": 2,
+  "class_uid": 99602001,
+  "class_name": "S1 Security Alert",
+  "type_uid": 9960200101,
+  "type_name": "S1 Security Alert: Create",
+  "category_name": "Findings",
+  "activity_id": 1,
+  "metadata": {
+    "version": "1.1.0",
+    "extension": {
+      "name": "s1",
+      "uid": "998",
+      "version": "0.1.0"
+    },
+    "product": {
+      "name": "ExtraHop Reveal(x) 360",
+      "vendor_name": "ExtraHop"
+    },
+    "uid": "21474836732",
+    "correlation_uid": "2258",
+    "original_time": 1732796685605,
+    "modified_time": 1732796706004,
+    "labels": ["sec", "sec.ids"]
+  },
+  "time": 1721851010000,
+  "logged_time": 1721851010000,
+  "modified_time": 1721851010000,
+  "attack_surface_ids": [2],
+  "severity_id": 3,
+  "state_id": 1,
+  "s1_classification_id": 13,
+  "src_endpoint": {
+    "ip": "10.1.1.10",
+    "hostname": "dc1.i.rx.tours"
+  },
+  "dst_endpoint": {
+    "ip": "10.1.0.162", 
+    "hostname": "pc1.i.rx.tours"
+  },
+  "connection_info": {
+    "protocol_name": "TCP",
+    "port": 3389
+  },
+  "enrichment": {
+    "provider": "ExtraHop Reveal(x) 360",
+    "data": {
+      "signature_id": "2036252",
+      "rule_created": "2022-04-19",
+      "provider": "Emerging Threats Pro",
+      "reference": "https://github.com/nmap/nmap/blob/4b46fa7097673f157e7b93e72f0c8b3249c54b4c/nselib/rdp.lua#L211"
+    }
+  }
+}

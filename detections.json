@@ -1,0 +1,725 @@
+[
+    {
+        "id": 21474836732,
+        "start_time": 1713979354458,
+        "update_time": 1732796685605,
+        "title": "ET SCAN RDP Connection Attempt from Nmap",
+        "description": "The ExtraHop system observed activity that matched rule values in signature ID\n(SID) 2036252:\n\n * Flow: [tcp] any  → any 3389\n * Payload: `/\\x00\\x00\\x00\\x00\\x00Cookie: mstshash=nmap\\r\\n/s`\n\n\nRule Created: 2022-04-19  \nProvided By: Emerging Threats Pro  \nReference: [https://github.com/nmap/nmap/blob/4b46fa7097673f157e7b93e72f0c8b3249c54b4c/nselib/rdp.lua#L211](https://github.com/nmap/nmap/blob/4b46fa7097673f157e7b93e72f0c8b3249c54b4c/nselib/rdp.lua#L211)  \n\n\n",
+        "risk_score": 35,
+        "type": "ids_network_scan",
+        "recommended_factors": [],
+        "recommended": false,
+        "categories": [
+            "sec",
+            "sec.ids"
+        ],
+        "properties": {
+            "sid": "2036252"
+        },
+        "participants": [
+            {
+                "role": "offender",
+                "scanner_service": null,
+                "endpoint": null,
+                "external": false,
+                "object_id": 12884901891,
+                "object_type": "device",
+                "object_value": "10.1.1.10",
+                "hostname": "dc1.i.rx.tours",
+                "id": 2682
+            },
+            {
+                "role": "victim",
+                "scanner_service": null,
+                "endpoint": null,
+                "external": false,
+                "object_id": 12884901904,
+                "object_type": "device",
+                "object_value": "10.1.0.162",
+                "hostname": "pc1.i.rx.tours",
+                "id": 2680
+            }
+        ],
+        "ticket_id": "2258",
+        "assignee": null,
+        "status": "acknowledged",
+        "resolution": null,
+        "mitre_tactics": [],
+        "mitre_techniques": [],
+        "appliance_id": 5,
+        "is_user_created": false,
+        "mod_time": 1732796706004,
+        "create_time": 1713979361640,
+        "url": "https://extrahop-bd.cloud.extrahop.com/extrahop/#/detections/detail/21474836732/?from=1713978454&until=1732797585&interval_type=DT"
+    },
+    {
+        "id": 21474836840,
+        "start_time": 1719440105298,
+        "update_time": 1732796684990,
+        "title": "ET POLICY Tunneled RDP msts Handshake",
+        "description": "The ExtraHop system observed activity that matched rule values in signature ID\n(SID) 2027192:\n\n * Flow: [tcp] any 21, 22, 23, 25, 53, 80, 443, 8080 → any 1:3388, 3390:65535\n * Packet is no more than 64 bytes\n * Payload: `/^\\x03\\x00\\x00.{2}\\xe0.{5}Cookie: mstshash=/s`\n\n\nRule Created: 2019-04-11  \nRule Updated: 2019-07-26  \nProvided By: Emerging Threats Pro  \nReference: [https://www.fireeye.com/blog/threat-research/2019/01/bypassing-network-restrictions-through-rdp-tunneling.html](https://www.fireeye.com/blog/threat-research/2019/01/bypassing-network-restrictions-through-rdp-tunneling.html)  \n\n\n",
+        "risk_score": 45,
+        "type": "ids_bad_unknown",
+        "recommended_factors": [],
+        "recommended": false,
+        "categories": [
+            "sec",
+            "sec.ids"
+        ],
+        "properties": {
+            "sid": "2027192"
+        },
+        "participants": [
+            {
+                "role": "offender",
+                "scanner_service": null,
+                "endpoint": null,
+                "external": false,
+                "object_id": 12884901891,
+                "object_type": "device",
+                "object_value": "10.1.1.10",
+                "hostname": "dc1.attack.local",
+                "id": 5256
+            },
+            {
+                "role": "victim",
+                "scanner_service": null,
+                "endpoint": null,
+                "external": false,
+                "object_id": 12884901904,
+                "object_type": "device",
+                "object_value": "10.1.0.162",
+                "hostname": "pc1.i.rx.tours",
+                "id": 2680
+            },
+            {
+                "role": "victim",
+                "scanner_service": null,
+                "endpoint": null,
+                "external": false,
+                "object_id": 12884901925,
+                "object_type": "device",
+                "object_value": "10.1.1.93",
+                "hostname": "jump.i.rx.tours",
+                "id": 5647
+            },
+            {
+                "role": "victim",
+                "scanner_service": null,
+                "endpoint": null,
+                "external": false,
+                "object_id": 12884901938,
+                "object_type": "device",
+                "object_value": "10.1.1.37",
+                "hostname": "jump.i.rx.tours",
+                "id": 6902
+            }
+        ],
+        "ticket_id": null,
+        "assignee": null,
+        "status": null,
+        "resolution": null,
+        "mitre_tactics": [],
+        "mitre_techniques": [],
+        "appliance_id": 5,
+        "is_user_created": false,
+        "mod_time": 1725987591974,
+        "create_time": 1719440115664,
+        "url": "https://extrahop-bd.cloud.extrahop.com/extrahop/#/detections/detail/21474836840/?from=1719439205&until=1732797584&interval_type=DT"
+    },
+    {
+        "id": 21474836976,
+        "start_time": 1732774447175,
+        "update_time": 1732774447175,
+        "end_time": 1732774447175,
+        "title": "ET HUNTING Suspicious NULL DNS Request",
+        "description": "The ExtraHop system observed activity that matched rule values in signature ID\n(SID) 2029994:\n\n * Flow: [dns] internal  → any \n * Payload: `/.{2}\\x01.{1}\\x00\\x01\\x00\\x00\\x00\\x00\\x00.*\\x00\\n\\x00\\x01/s`\n\n\nRule Created: 2020-04-22  \nProvided By: Emerging Threats Pro  \n\n\n",
+        "risk_score": 45,
+        "type": "ids_misc_activity",
+        "recommended_factors": [],
+        "recommended": false,
+        "categories": [
+            "sec",
+            "sec.ids"
+        ],
+        "properties": {
+            "sid": "2029994"
+        },
+        "participants": [
+            {
+                "role": "offender",
+                "scanner_service": null,
+                "endpoint": null,
+                "external": false,
+                "object_id": 12884901959,
+                "object_type": "device",
+                "object_value": "10.1.100.186",
+                "hostname": "echo1.i.rx.tours",
+                "id": 7078
+            },
+            {
+                "role": "victim",
+                "scanner_service": null,
+                "endpoint": null,
+                "external": false,
+                "object_id": 12884901891,
+                "object_type": "device",
+                "object_value": "10.1.1.10",
+                "hostname": "dc1.i.rx.tours",
+                "id": 2682
+            }
+        ],
+        "ticket_id": "2806",
+        "assignee": null,
+        "status": null,
+        "resolution": null,
+        "mitre_tactics": [],
+        "mitre_techniques": [],
+        "appliance_id": 5,
+        "is_user_created": false,
+        "mod_time": 1732778149759,
+        "create_time": 1732774500404,
+        "url": "https://extrahop-bd.cloud.extrahop.com/extrahop/#/detections/detail/21474836976/?from=1732773547&until=1732775347&interval_type=DT"
+    },
+    {
+        "id": 12884903478,
+        "start_time": 1730906797851,
+        "update_time": 1732758564278,
+        "title": "Deprecated SSL/TLS Versions",
+        "description": "[db1\\.i\\.rx\\.tours](https://extrahop-bd.cloud.extrahop.com#/metrics/devices/fa60fb84b3594c9bb8262f88e90a2c8b.0eb86305462d0000/overview?from=1730906797&interval_type=DT&until=1732796670) established an SSL/TLS connection with a deprecated version of SSL/TLS. SSL 2.0, SSL 3.0, and TLS 1.0 are deprecated because they are vulnerable to attacks.",
+        "risk_score": 30,
+        "type": "deprecated_ssl_tls_individual",
+        "recommended_factors": [],
+        "recommended": false,
+        "categories": [
+            "sec",
+            "sec.hardening"
+        ],
+        "properties": {
+            "version": "TLSv1.0"
+        },
+        "participants": [
+            {
+                "role": "offender",
+                "scanner_service": null,
+                "endpoint": "server",
+                "external": false,
+                "object_id": 12884901952,
+                "object_type": "device",
+                "object_value": "10.1.1.90",
+                "hostname": "db1.i.rx.tours",
+                "id": 7062
+            }
+        ],
+        "ticket_id": "2789",
+        "assignee": null,
+        "status": null,
+        "resolution": null,
+        "mitre_tactics": [],
+        "mitre_techniques": [],
+        "appliance_id": 3,
+        "is_user_created": false,
+        "mod_time": 1730906798342,
+        "create_time": 1730906814715,
+        "url": "https://extrahop-bd.cloud.extrahop.com/extrahop/#/detections/detail/12884903478/?from=1730905897&until=1732759464&interval_type=DT"
+    },
+    {
+        "id": 12884903477,
+        "start_time": 1730906797851,
+        "update_time": 1732757302376,
+        "title": "Weak Cipher Suite",
+        "description": "[db1\\.i\\.rx\\.tours](https://extrahop-bd.cloud.extrahop.com#/metrics/devices/fa60fb84b3594c9bb8262f88e90a2c8b.0eb86305462d0000/overview?from=1730906797&interval_type=DT&until=1732796670) negotiated a TLS session with a cipher suite that includes a weak encryption algorithm such as CBC, 3DES, RC4, null, anonymous, or export. Remove this cipher suite from [db1\\.i\\.rx\\.tours](https://extrahop-bd.cloud.extrahop.com#/metrics/devices/fa60fb84b3594c9bb8262f88e90a2c8b.0eb86305462d0000/overview?from=1730906797&interval_type=DT&until=1732796670) and replace with stronger cipher suites.",
+        "risk_score": 30,
+        "type": "weak_cipher_individual",
+        "recommended_factors": [],
+        "recommended": false,
+        "categories": [
+            "sec",
+            "sec.hardening"
+        ],
+        "properties": {
+            "cipher_suite": "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"
+        },
+        "participants": [
+            {
+                "role": "offender",
+                "scanner_service": null,
+                "endpoint": "server",
+                "external": false,
+                "object_id": 12884901952,
+                "object_type": "device",
+                "object_value": "10.1.1.90",
+                "hostname": "db1.i.rx.tours",
+                "id": 7062
+            }
+        ],
+        "ticket_id": "2793",
+        "assignee": null,
+        "status": null,
+        "resolution": null,
+        "mitre_tactics": [],
+        "mitre_techniques": [],
+        "appliance_id": 3,
+        "is_user_created": false,
+        "mod_time": 1730906798303,
+        "create_time": 1730906814715,
+        "url": "https://extrahop-bd.cloud.extrahop.com/extrahop/#/detections/detail/12884903477/?from=1730905897&until=1732758202&interval_type=DT"
+    },
+    {
+        "id": 12884902085,
+        "start_time": 1701379723028,
+        "update_time": 1732757172862,
+        "title": "Weak Cipher Suite",
+        "description": "[dc1\\.i\\.rx\\.tours](https://extrahop-bd.cloud.extrahop.com#/metrics/devices/fa60fb84b3594c9bb8262f88e90a2c8b.0e87de5bffc10000/overview?from=1701379723&interval_type=DT&until=1732796670) negotiated a TLS session with a cipher suite that includes a weak encryption algorithm such as CBC, 3DES, RC4, null, anonymous, or export. Remove this cipher suite from [dc1\\.i\\.rx\\.tours](https://extrahop-bd.cloud.extrahop.com#/metrics/devices/fa60fb84b3594c9bb8262f88e90a2c8b.0e87de5bffc10000/overview?from=1701379723&interval_type=DT&until=1732796670) and replace with stronger cipher suites.",
+        "risk_score": 30,
+        "type": "weak_cipher_individual",
+        "recommended_factors": [],
+        "recommended": false,
+        "categories": [
+            "sec",
+            "sec.hardening"
+        ],
+        "properties": {
+            "cipher_suite": "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384"
+        },
+        "participants": [
+            {
+                "role": "offender",
+                "scanner_service": null,
+                "endpoint": null,
+                "external": false,
+                "object_id": 12884901891,
+                "object_type": "device",
+                "object_value": "10.1.1.10",
+                "hostname": "dc1.i.rx.tours",
+                "id": 2654
+            },
+            {
+                "role": "offender",
+                "scanner_service": null,
+                "endpoint": "server",
+                "external": false,
+                "object_id": 12884901891,
+                "object_type": "device",
+                "object_value": "10.1.1.10",
+                "hostname": "dc1.i.rx.tours",
+                "id": 2654
+            }
+        ],
+        "ticket_id": "2798",
+        "assignee": null,
+        "status": null,
+        "resolution": null,
+        "mitre_tactics": [],
+        "mitre_techniques": [],
+        "appliance_id": 3,
+        "is_user_created": false,
+        "mod_time": 1730218081163,
+        "create_time": 1701379723381,
+        "url": "https://extrahop-bd.cloud.extrahop.com/extrahop/#/detections/detail/12884902085/?from=1701378823&until=1732758072&interval_type=DT"
+    },
+    {
+        "id": 12884902081,
+        "start_time": 1701270240000,
+        "update_time": 1732756320000,
+        "title": "LLMNR Activity",
+        "description": "[pc2\\.i\\.rx\\.tours](https://extrahop-bd.cloud.extrahop.com#/metrics/devices/fa60fb84b3594c9bb8262f88e90a2c8b.0edca822a41f0000/overview?from=1701270240&interval_type=DT&until=1732796670) sent Link-Local Multicast Name Resolution (LLMNR) requests that are part of an internal broadcast query to resolve a hostname. The LLMNR protocol is known to be vulnerable to attacks.",
+        "risk_score": 30,
+        "type": "llmnr_activity_individual",
+        "recommended_factors": [],
+        "recommended": false,
+        "categories": [
+            "sec",
+            "sec.hardening"
+        ],
+        "properties": {},
+        "participants": [
+            {
+                "role": "offender",
+                "scanner_service": null,
+                "endpoint": null,
+                "external": false,
+                "object_id": 12884901896,
+                "object_type": "device",
+                "id": 2642
+            }
+        ],
+        "ticket_id": "2259",
+        "assignee": null,
+        "status": null,
+        "resolution": null,
+        "mitre_tactics": [],
+        "mitre_techniques": [],
+        "appliance_id": 3,
+        "is_user_created": false,
+        "mod_time": 1732756515415,
+        "create_time": 1701270271705,
+        "url": "https://extrahop-bd.cloud.extrahop.com/extrahop/#/detections/detail/12884902081/?from=1701269340&until=1732757220&interval_type=DT"
+    },
+    {
+        "id": 12884902084,
+        "start_time": 1701270240000,
+        "update_time": 1732756290000,
+        "title": "LLMNR Activity",
+        "description": "[dc1\\.i\\.rx\\.tours](https://extrahop-bd.cloud.extrahop.com#/metrics/devices/fa60fb84b3594c9bb8262f88e90a2c8b.0e87de5bffc10000/overview?from=1701270240&interval_type=DT&until=1732796670) sent Link-Local Multicast Name Resolution (LLMNR) requests that are part of an internal broadcast query to resolve a hostname. The LLMNR protocol is known to be vulnerable to attacks.",
+        "risk_score": 30,
+        "type": "llmnr_activity_individual",
+        "recommended_factors": [],
+        "recommended": false,
+        "categories": [
+            "sec",
+            "sec.hardening"
+        ],
+        "properties": {},
+        "participants": [
+            {
+                "role": "offender",
+                "scanner_service": null,
+                "endpoint": null,
+                "external": false,
+                "object_id": 12884901891,
+                "object_type": "device",
+                "id": 2205
+            }
+        ],
+        "ticket_id": "2262",
+        "assignee": null,
+        "status": null,
+        "resolution": null,
+        "mitre_tactics": [],
+        "mitre_techniques": [],
+        "appliance_id": 3,
+        "is_user_created": false,
+        "mod_time": 1732756307645,
+        "create_time": 1701270271806,
+        "url": "https://extrahop-bd.cloud.extrahop.com/extrahop/#/detections/detail/12884902084/?from=1701269340&until=1732757190&interval_type=DT"
+    },
+    {
+        "id": 12884902082,
+        "start_time": 1701270240000,
+        "update_time": 1732756260000,
+        "title": "LLMNR Activity",
+        "description": "[pc3\\.i\\.rx\\.tours](https://extrahop-bd.cloud.extrahop.com#/metrics/devices/fa60fb84b3594c9bb8262f88e90a2c8b.0e3faba10b8b0000/overview?from=1701270240&interval_type=DT&until=1732796670) sent Link-Local Multicast Name Resolution (LLMNR) requests that are part of an internal broadcast query to resolve a hostname. The LLMNR protocol is known to be vulnerable to attacks.",
+        "risk_score": 30,
+        "type": "llmnr_activity_individual",
+        "recommended_factors": [],
+        "recommended": false,
+        "categories": [
+            "sec",
+            "sec.hardening"
+        ],
+        "properties": {},
+        "participants": [
+            {
+                "role": "offender",
+                "scanner_service": null,
+                "endpoint": null,
+                "external": false,
+                "object_id": 12884901899,
+                "object_type": "device",
+                "id": 2129
+            }
+        ],
+        "ticket_id": "2260",
+        "assignee": null,
+        "status": null,
+        "resolution": null,
+        "mitre_tactics": [],
+        "mitre_techniques": [],
+        "appliance_id": 3,
+        "is_user_created": false,
+        "mod_time": 1732756276880,
+        "create_time": 1701270271744,
+        "url": "https://extrahop-bd.cloud.extrahop.com/extrahop/#/detections/detail/12884902082/?from=1701269340&until=1732757160&interval_type=DT"
+    },
+    {
+        "id": 12884902083,
+        "start_time": 1701270240000,
+        "update_time": 1732756260000,
+        "title": "LLMNR Activity",
+        "description": "[pc1\\.i\\.rx\\.tours](https://extrahop-bd.cloud.extrahop.com#/metrics/devices/fa60fb84b3594c9bb8262f88e90a2c8b.0ef56b5e09530000/overview?from=1701270240&interval_type=DT&until=1732796670) sent Link-Local Multicast Name Resolution (LLMNR) requests that are part of an internal broadcast query to resolve a hostname. The LLMNR protocol is known to be vulnerable to attacks.",
+        "risk_score": 30,
+        "type": "llmnr_activity_individual",
+        "recommended_factors": [],
+        "recommended": false,
+        "categories": [
+            "sec",
+            "sec.hardening"
+        ],
+        "properties": {},
+        "participants": [
+            {
+                "role": "offender",
+                "scanner_service": null,
+                "endpoint": null,
+                "external": false,
+                "object_id": 12884901904,
+                "object_type": "device",
+                "id": 2156
+            }
+        ],
+        "ticket_id": "2261",
+        "assignee": null,
+        "status": null,
+        "resolution": null,
+        "mitre_tactics": [],
+        "mitre_techniques": [],
+        "appliance_id": 3,
+        "is_user_created": false,
+        "mod_time": 1732756307644,
+        "create_time": 1701270271775,
+        "url": "https://extrahop-bd.cloud.extrahop.com/extrahop/#/detections/detail/12884902083/?from=1701269340&until=1732757160&interval_type=DT"
+    },
+    {
+        "id": 12884903484,
+        "start_time": 1730906908779,
+        "update_time": 1732753434353,
+        "title": "Expired SSL/TLS Server Certificate",
+        "description": "[echo1\\.i\\.rx\\.tours](https://extrahop-bd.cloud.extrahop.com#/metrics/devices/fa60fb84b3594c9bb8262f88e90a2c8b.0ecb78ba3ad70000/overview?from=1730906908&interval_type=DT&until=1732796670) is configured with an expired TLS certificate. Clients have established TLS sessions with [echo1\\.i\\.rx\\.tours](https://extrahop-bd.cloud.extrahop.com#/metrics/devices/fa60fb84b3594c9bb8262f88e90a2c8b.0ecb78ba3ad70000/overview?from=1730906908&interval_type=DT&until=1732796670) despite the expired certificate. Expired TLS certificates can increase the vulnerability of sensitive information on your network.",
+        "risk_score": 45,
+        "type": "expired_cert_individual",
+        "recommended_factors": [],
+        "recommended": false,
+        "categories": [
+            "sec",
+            "sec.hardening"
+        ],
+        "properties": {
+            "certificate": "i.rx.tours:RSA_2048:274ad47c1438fb0d136c924be69d107cf5c3b57e"
+        },
+        "participants": [
+            {
+                "role": "offender",
+                "scanner_service": null,
+                "endpoint": "server",
+                "external": false,
+                "object_id": 12884901959,
+                "object_type": "device",
+                "object_value": "10.1.100.186",
+                "hostname": "echo1.rx.tours",
+                "id": 7069
+            }
+        ],
+        "ticket_id": null,
+        "assignee": null,
+        "status": null,
+        "resolution": null,
+        "mitre_tactics": [],
+        "mitre_techniques": [],
+        "appliance_id": 3,
+        "is_user_created": false,
+        "mod_time": 1730906909419,
+        "create_time": 1730906964680,
+        "url": "https://extrahop-bd.cloud.extrahop.com/extrahop/#/detections/detail/12884903484/?from=1730906008&until=1732754334&interval_type=DT"
+    },
+    {
+        "id": 12884903487,
+        "start_time": 1731974563013,
+        "update_time": 1732753434208,
+        "title": "Expired TLS Server Certificate",
+        "description": "[web3\\.i\\.rx\\.tours](https://extrahop-bd.cloud.extrahop.com#/metrics/devices/fa60fb84b3594c9bb8262f88e90a2c8b.0eeafe4b59230000/overview?from=1731974563&interval_type=DT&until=1732796670) is configured with an expired TLS certificate. Clients have established TLS sessions with [web3\\.i\\.rx\\.tours](https://extrahop-bd.cloud.extrahop.com#/metrics/devices/fa60fb84b3594c9bb8262f88e90a2c8b.0eeafe4b59230000/overview?from=1731974563&interval_type=DT&until=1732796670) despite the expired certificate. Expired TLS certificates can increase the vulnerability of sensitive information on your network.",
+        "risk_score": 45,
+        "type": "expired_cert_individual",
+        "recommended_factors": [],
+        "recommended": false,
+        "categories": [
+            "sec",
+            "sec.hardening"
+        ],
+        "properties": {
+            "certificate": "i.rx.tours:RSA_2048:274ad47c1438fb0d136c924be69d107cf5c3b57e"
+        },
+        "participants": [
+            {
+                "role": "offender",
+                "scanner_service": null,
+                "endpoint": "server",
+                "external": false,
+                "object_id": 12884901963,
+                "object_type": "device",
+                "object_value": "10.1.1.109",
+                "hostname": "web3.i.rx.tours",
+                "id": 7074
+            }
+        ],
+        "ticket_id": "2799",
+        "assignee": null,
+        "status": null,
+        "resolution": null,
+        "mitre_tactics": [],
+        "mitre_techniques": [],
+        "appliance_id": 3,
+        "is_user_created": false,
+        "mod_time": 1731974563460,
+        "create_time": 1731974591712,
+        "url": "https://extrahop-bd.cloud.extrahop.com/extrahop/#/detections/detail/12884903487/?from=1731973663&until=1732754334&interval_type=DT"
+    },
+    {
+        "id": 12884903486,
+        "start_time": 1731974557015,
+        "update_time": 1732753434140,
+        "title": "Expired TLS Server Certificate",
+        "description": "[web2\\.i\\.rx\\.tours](https://extrahop-bd.cloud.extrahop.com#/metrics/devices/fa60fb84b3594c9bb8262f88e90a2c8b.0e9db7e6fee10000/overview?from=1731974557&interval_type=DT&until=1732796670) is configured with an expired TLS certificate. Clients have established TLS sessions with [web2\\.i\\.rx\\.tours](https://extrahop-bd.cloud.extrahop.com#/metrics/devices/fa60fb84b3594c9bb8262f88e90a2c8b.0e9db7e6fee10000/overview?from=1731974557&interval_type=DT&until=1732796670) despite the expired certificate. Expired TLS certificates can increase the vulnerability of sensitive information on your network.",
+        "risk_score": 45,
+        "type": "expired_cert_individual",
+        "recommended_factors": [],
+        "recommended": false,
+        "categories": [
+            "sec",
+            "sec.hardening"
+        ],
+        "properties": {
+            "certificate": "i.rx.tours:RSA_2048:274ad47c1438fb0d136c924be69d107cf5c3b57e"
+        },
+        "participants": [
+            {
+                "role": "offender",
+                "scanner_service": null,
+                "endpoint": "server",
+                "external": false,
+                "object_id": 12884901962,
+                "object_type": "device",
+                "object_value": "10.1.1.93",
+                "hostname": "web2.i.rx.tours",
+                "id": 7073
+            }
+        ],
+        "ticket_id": "2801",
+        "assignee": null,
+        "status": null,
+        "resolution": null,
+        "mitre_tactics": [],
+        "mitre_techniques": [],
+        "appliance_id": 3,
+        "is_user_created": false,
+        "mod_time": 1731974563342,
+        "create_time": 1731974591712,
+        "url": "https://extrahop-bd.cloud.extrahop.com/extrahop/#/detections/detail/12884903486/?from=1731973657&until=1732754334&interval_type=DT"
+    },
+    {
+        "id": 12884903485,
+        "start_time": 1731974562870,
+        "update_time": 1732753434062,
+        "title": "Expired TLS Server Certificate",
+        "description": "[web1\\.i\\.rx\\.tours](https://extrahop-bd.cloud.extrahop.com#/metrics/devices/fa60fb84b3594c9bb8262f88e90a2c8b.0e57a4be9ab90000/overview?from=1731974562&interval_type=DT&until=1732796670) is configured with an expired TLS certificate. Clients have established TLS sessions with [web1\\.i\\.rx\\.tours](https://extrahop-bd.cloud.extrahop.com#/metrics/devices/fa60fb84b3594c9bb8262f88e90a2c8b.0e57a4be9ab90000/overview?from=1731974562&interval_type=DT&until=1732796670) despite the expired certificate. Expired TLS certificates can increase the vulnerability of sensitive information on your network.",
+        "risk_score": 45,
+        "type": "expired_cert_individual",
+        "recommended_factors": [],
+        "recommended": false,
+        "categories": [
+            "sec",
+            "sec.hardening"
+        ],
+        "properties": {
+            "certificate": "i.rx.tours:RSA_2048:274ad47c1438fb0d136c924be69d107cf5c3b57e"
+        },
+        "participants": [
+            {
+                "role": "offender",
+                "scanner_service": null,
+                "endpoint": "server",
+                "external": false,
+                "object_id": 12884901961,
+                "object_type": "device",
+                "object_value": "10.1.1.108",
+                "hostname": "web1.i.rx.tours",
+                "id": 7072
+            }
+        ],
+        "ticket_id": "2800",
+        "assignee": null,
+        "status": null,
+        "resolution": null,
+        "mitre_tactics": [],
+        "mitre_techniques": [],
+        "appliance_id": 3,
+        "is_user_created": false,
+        "mod_time": 1731974563160,
+        "create_time": 1731974591712,
+        "url": "https://extrahop-bd.cloud.extrahop.com/extrahop/#/detections/detail/12884903485/?from=1731973662&until=1732754334&interval_type=DT"
+    },
+    {
+        "id": 12884903479,
+        "start_time": 1730906797851,
+        "update_time": 1732753434051,
+        "title": "Expired SSL/TLS Server Certificate",
+        "description": "[db1\\.i\\.rx\\.tours](https://extrahop-bd.cloud.extrahop.com#/metrics/devices/fa60fb84b3594c9bb8262f88e90a2c8b.0eb86305462d0000/overview?from=1730906797&interval_type=DT&until=1732796670) is configured with an expired TLS certificate. Clients have established TLS sessions with [db1\\.i\\.rx\\.tours](https://extrahop-bd.cloud.extrahop.com#/metrics/devices/fa60fb84b3594c9bb8262f88e90a2c8b.0eb86305462d0000/overview?from=1730906797&interval_type=DT&until=1732796670) despite the expired certificate. Expired TLS certificates can increase the vulnerability of sensitive information on your network.",
+        "risk_score": 45,
+        "type": "expired_cert_individual",
+        "recommended_factors": [],
+        "recommended": false,
+        "categories": [
+            "sec",
+            "sec.hardening"
+        ],
+        "properties": {
+            "certificate": "i.rx.tours:RSA_2048:274ad47c1438fb0d136c924be69d107cf5c3b57e"
+        },
+        "participants": [
+            {
+                "role": "offender",
+                "scanner_service": null,
+                "endpoint": "server",
+                "external": false,
+                "object_id": 12884901952,
+                "object_type": "device",
+                "object_value": "10.1.1.90",
+                "hostname": "db1.i.rx.tours",
+                "id": 7062
+            }
+        ],
+        "ticket_id": "2791",
+        "assignee": null,
+        "status": null,
+        "resolution": null,
+        "mitre_tactics": [],
+        "mitre_techniques": [],
+        "appliance_id": 3,
+        "is_user_created": false,
+        "mod_time": 1730906798383,
+        "create_time": 1730906814715,
+        "url": "https://extrahop-bd.cloud.extrahop.com/extrahop/#/detections/detail/12884903479/?from=1730905897&until=1732754334&interval_type=DT"
+    },
+    {
+        "id": 12884903483,
+        "start_time": 1730906908581,
+        "update_time": 1732753433971,
+        "title": "Expired SSL/TLS Server Certificate",
+        "description": "[hackazon\\.i\\.rx\\.tours](https://extrahop-bd.cloud.extrahop.com#/metrics/devices/fa60fb84b3594c9bb8262f88e90a2c8b.0e42b1a91c9f0000/overview?from=1730906908&interval_type=DT&until=1732796670) is configured with an expired TLS certificate. Clients have established TLS sessions with [hackazon\\.i\\.rx\\.tours](https://extrahop-bd.cloud.extrahop.com#/metrics/devices/fa60fb84b3594c9bb8262f88e90a2c8b.0e42b1a91c9f0000/overview?from=1730906908&interval_type=DT&until=1732796670) despite the expired certificate. Expired TLS certificates can increase the vulnerability of sensitive information on your network.",
+        "risk_score": 45,
+        "type": "expired_cert_individual",
+        "recommended_factors": [],
+        "recommended": false,
+        "categories": [
+            "sec",
+            "sec.hardening"
+        ],
+        "properties": {
+            "certificate": "i.rx.tours:RSA_2048:274ad47c1438fb0d136c924be69d107cf5c3b57e"
+        },
+        "participants": [
+            {
+                "role": "offender",
+                "scanner_service": null,
+                "endpoint": "server",
+                "external": false,
+                "object_id": 12884901957,
+                "object_type": "device",
+                "object_value": "10.1.100.65",
+                "hostname": "hackazon.rx.tours",
+                "id": 7068
+            }
+        ],
+        "ticket_id": null,
+        "assignee": null,
+        "status": null,
+        "resolution": null,
+        "mitre_tactics": [],
+        "mitre_techniques": [],
+        "appliance_id": 3,
+        "is_user_created": false,
+        "mod_time": 1730906909074,
+        "create_time": 1730906964679,
+        "url": "https://extrahop-bd.cloud.extrahop.com/extrahop/#/detections/detail/12884903483/?from=1730906008&until=1732754333&interval_type=DT"
+    }
+]
